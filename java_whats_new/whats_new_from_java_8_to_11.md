@@ -59,7 +59,7 @@ String trailing = text.stripTrailing();
 
 - **Impact** : Meilleure gestion des espaces Unicode, plus robuste pour l'internationalisation.
 
-## 2 - Inférence de type avec var (Java 10, disponible en Java 11)
+## 2 - Inférence de type avec `var` (Java 10, disponible en Java 11)
 - **Utilité** : Réduit la verbosité en laissant le compilateur inférer le type des variables locales.
 
 ```java
@@ -105,7 +105,7 @@ Map<String, Integer> immutableMap = Map.of("one", 1, "two", 2);
 
 ## 4 - Améliorations des Optionals
 ### `Optional.isEmpty()`
-- **Utilité** : Méthode complémentaire à isPresent() pour mieux exprimer l'intention.
+- **Utilité** : Méthode complémentaire à `isPresent()` pour mieux exprimer l'intention.
 
 ```java
 // Avant (Java 8)
@@ -122,8 +122,10 @@ if (opt.isEmpty()) {
 
 - **Impact** : Amélioration de la lisibilité (logique positive vs négative).
 
+Pour apprendre plus sur les `Optional`s, cliquer [ici](./../fonctionalities/optionals.ms)
+
 ## 5 - Nouveau client HTTP (Java 11)
-- **Utilité** : API moderne et asynchrone pour les requêtes HTTP, remplaçant HttpURLConnection.
+- **Utilité** : API moderne et asynchrone pour les requêtes HTTP, remplaçant `HttpURLConnection`.
 
 ```java
 // Avant (Java 8) - HttpURLConnection
@@ -232,7 +234,7 @@ public interface Calculator {
 - **Impact** : Meilleure factorisation du code dans les interfaces, moins de duplication.
 
 ## 8 - Try-with-resources amélioré (Java 9)
-- **Utilité** : Permet d'utiliser des variables effectively final dans try-with-resources.
+- **Utilité** : Permet d'utiliser des variables effectively `final` dans `try-with-resources`.
 
 ```java
 // Avant (Java 8)
@@ -250,7 +252,7 @@ try (reader) {
 
 - **Impact** : Code moins verbeux, plus lisible.
 
-## 10 - Méthodes ajoutées à Files
+## 9 - Méthodes ajoutées à Files
 Files.readString() et Files.writeString()
 - **Utilité** : Lecture/écriture simplifiée de fichiers texte.
 
@@ -269,7 +271,7 @@ Files.writeString(path, content);
 
 - **Impact** : API simplifiée, code plus lisible, gestion automatique de l'encoding.
 
-## 11 - Collection.toArray() amélioré
+## 10 - Collection.toArray() amélioré
 - **Utilité** : Conversion collection vers array sans générateur de fonction.
 
 ```java
@@ -283,7 +285,7 @@ String[] array = list.toArray(String[]::new);
 
 - **Impact** : Syntaxe plus moderne et expressive.
 
-## 12 - Predicate.not()
+## 11 - Predicate.not()
 - **Utilité** : Négation de prédicat plus lisible dans les streams.
 
 ```java
@@ -300,7 +302,7 @@ List<String> nonEmpty = strings.stream()
 
 - **Impact** : Meilleure lisibilité avec les method references.
 
-## 13 - Suppression de modules deprecated
+## 12 - Suppression de modules deprecated
 - **Important** : Java 11 supprime plusieurs modules et APIs :
   - JavaFX (maintenant séparé)
   - CORBA
@@ -317,8 +319,8 @@ List<String> nonEmpty = strings.stream()
 </dependency>
 ```
 
-## 14 - Launch Single-File Source-Code Programs
-- **Utilité** : Exécuter directement un fichier .java sans compilation explicite.
+## 13 - Launch Single-File Source-Code Programs
+- **Utilité** : Exécuter directement un fichier `.java` sans compilation explicite.
 
 ```bash
 # Avant (Java 8)
@@ -331,7 +333,7 @@ java HelloWorld.java
 
 - **Impact** : Idéal pour scripts et prototypage rapide.
 
-## 9 - Nouveau garbage collector : ZGC (expérimental en Java 11)
+## 14 - Nouveau garbage collector : ZGC (expérimental en Java 11)
 - **Utilité** : Garbage collector à faible latence pour de grandes heaps (jusqu'à 16 TB).
 
 ```bash
@@ -340,5 +342,3 @@ java -XX:+UnlockExperimentalVMOptions -XX:+UseZGC -jar application.jar
 ```
 
 - **Impact** : Pauses GC < 10ms, idéal pour applications nécessitant une faible latence.
-
----
