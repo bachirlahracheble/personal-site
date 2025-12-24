@@ -41,8 +41,13 @@ public final class Person {
 
 // Après (Java 17)
 public record Person(String name, int age) {}
+```
+
 - **Impact** : Réduction drastique du boilerplate (30+ lignes → 1 ligne), immutabilité garantie, code plus maintenable.
-Records avec validations
+
+### Records avec validations
+
+```java
 javapublic record Person(String name, int age) {
     public Person {
         if (age < 0) {
@@ -116,6 +121,8 @@ if (obj instanceof String) {
 if (obj instanceof String str) {
     System.out.println(str.length());
 }
+```
+
 Exemple plus complexe :
 
 ```java
@@ -381,11 +388,12 @@ java -XX:+UseZGC -jar application.jar
 
 # G1GC avec retour dynamique de mémoire
 java -XX:+UseG1GC -XX:G1PeriodicGCInterval=30000 -jar application.jar
-- **Impact** :
-
-ZGC : Pauses < 1ms même pour heaps très larges
-G1GC : Retour automatique de mémoire au système d'exploitation
 ```
+
+- **Impact** :
+  - ZGC : Pauses < 1ms même pour heaps très larges
+  - G1GC : Retour automatique de mémoire au système d'exploitation
+
 
 ## 11 - macOS/AArch64 Support (Java 17)
 - **Utilité** : Support natif pour les Mac Apple Silicon (M1/M2/M3).
@@ -425,12 +433,11 @@ ois.setObjectInputFilter(filter);
 
 ## 14 - Deprecation et Suppression
 APIs supprimées ou deprecated :
+- RMI Activation (JEP 407)
+- Security Manager (deprecated for removal)
+- Applet API (supprimée)
 
-RMI Activation (JEP 407)
-Security Manager (deprecated for removal)
-Applet API (supprimée)
-
-Action requise : Vérifier l'utilisation de ces APIs et migrer vers des alternatives modernes.
+**Action requise** : Vérifier l'utilisation de ces APIs et migrer vers des alternatives modernes.
 
 ## 15 - Nouveaux Méthodes Utilitaires
 `Objects.checkIndex()`, `checkFromToIndex()`, `checkFromIndexSize()`
