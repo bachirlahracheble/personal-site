@@ -4,6 +4,7 @@ Ci-dessous les principales nouveautés introduites entre Java 8 et Java 11, avec
 ## 1 - Nouvelles méthodes sur String
 ### `String.isBlank()`
 - **Utilité** : Vérifie si une chaîne est vide ou ne contient que des espaces blancs.
+ 
 ```java
 // Avant (Java 8)
 String text = "   ";
@@ -12,10 +13,12 @@ boolean isEmpty = text.trim().isEmpty();
 // Après (Java 11)
 boolean isBlank = text.isBlank();
 ```
+
 - **Impact** : Amélioration de la lisibilité et légère optimisation (pas de création d'objet temporaire avec `trim()`).
 
 ### `String.lines()`
 - **Utilité** : Retourne un Stream des lignes d'une chaîne multilignes.
+
 ```java
 // Avant (Java 8)
 String multiline = "Ligne1\nLigne2\nLigne3";
@@ -29,6 +32,7 @@ multiline.lines().forEach(System.out::println);
 
 ### `String.repeat()`
 - **Utilité** : Répète une chaîne n fois.
+
 ```java
 // Avant (Java 8)
 String repeated = new String(new char[3]).replace("\0", "Java");
@@ -36,6 +40,7 @@ String repeated = new String(new char[3]).replace("\0", "Java");
 // Après (Java 11)
 String repeated = "Java".repeat(3); // "JavaJavaJava"
 ```
+
 - **Impact** : Lisibilité considérablement améliorée et performance optimisée.
 
 ### `String.strip()`, `stripLeading()`, `stripTrailing()`
