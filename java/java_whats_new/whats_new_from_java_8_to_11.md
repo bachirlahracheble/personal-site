@@ -1,7 +1,7 @@
 # Guide complet : Nouveautés Java 11 (LTS)
 Ci-dessous les principales nouveautés introduites entre Java 8 et Java 11, avec des exemples pratiques.
 
-## 1 - Nouvelles méthodes sur String
+## 1 - Nouvelles méthodes sur `String`
 ### `String.isBlank()`
 - **Utilité** : Vérifie si une chaîne est vide ou ne contient que des espaces blancs.
  
@@ -122,7 +122,7 @@ if (opt.isEmpty()) {
 
 - **Impact** : Amélioration de la lisibilité (logique positive vs négative).
 
-Pour apprendre plus sur les `Optional`s, cliquer [ici](./../fonctionalities/optionals.ms)
+Pour apprendre plus sur les `Optional`, cliquer [ici](./../fonctionalities/optionals.md)
 
 ## 5 - Nouveau client HTTP (Java 11)
 - **Utilité** : API moderne et asynchrone pour les requêtes HTTP, remplaçant `HttpURLConnection`.
