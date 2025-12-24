@@ -45,6 +45,7 @@ String repeated = "Java".repeat(3); // "JavaJavaJava"
 
 ### `String.strip()`, `stripLeading()`, `stripTrailing()`
 - **Utilité** : Supprime les espaces blancs Unicode (pas seulement ASCII comme trim()).
+
 ```java
 // Avant (Java 8)
 String text = " \u2000 Hello \u2000 ";
@@ -55,10 +56,12 @@ String stripped = text.strip(); // "Hello"
 String leading = text.stripLeading();
 String trailing = text.stripTrailing();
 ```
+
 - **Impact** : Meilleure gestion des espaces Unicode, plus robuste pour l'internationalisation.
 
 ## 2 - Inférence de type avec var (Java 10, disponible en Java 11)
 - **Utilité** : Réduit la verbosité en laissant le compilateur inférer le type des variables locales.
+
 ```java
 // Avant (Java 8)
 Map<String, List<Customer>> customersByCity = new HashMap<>();
@@ -68,10 +71,12 @@ List<String> names = Arrays.asList("Alice", "Bob");
 var customersByCity = new HashMap<String, List<Customer>>();
 var names = List.of("Alice", "Bob");
 ```
+
 - **Impact** : Réduction de la verbosité tout en maintenant la sécurité des types. Attention à ne pas abuser pour garder la lisibilité.
 
 ## 3 - Collections Factory Methods (Java 9, disponible en Java 11)
 - **Utilité** : Création simplifiée de collections immuables.
+
 ```java
 // Avant (Java 8)
 List<String> list = new ArrayList<>();
@@ -95,11 +100,13 @@ List<String> immutableList = List.of("A", "B", "C");
 Set<String> immutableSet = Set.of("X", "Y");
 Map<String, Integer> immutableMap = Map.of("one", 1, "two", 2);
 ```
+
 - **Impact** : Code beaucoup plus concis, performance améliorée (structures optimisées), collections immutables par défaut.
 
 ## 4 - Améliorations des Optionals
 ### `Optional.isEmpty()`
 - **Utilité** : Méthode complémentaire à isPresent() pour mieux exprimer l'intention.
+
 ```java
 // Avant (Java 8)
 Optional<String> opt = Optional.empty();
@@ -112,10 +119,12 @@ if (opt.isEmpty()) {
     System.out.println("Vide");
 }
 ```
+
 - **Impact** : Amélioration de la lisibilité (logique positive vs négative).
 
 ## 5 - Nouveau client HTTP (Java 11)
 - **Utilité** : API moderne et asynchrone pour les requêtes HTTP, remplaçant HttpURLConnection.
+
 ```java
 // Avant (Java 8) - HttpURLConnection
 URL url = new URL("https://api.example.com/data");
@@ -142,11 +151,13 @@ HttpResponse<String> response = client.send(request,
     HttpResponse.BodyHandlers.ofString());
 String content = response.body();
 ```
+
 - **Impact** : API plus moderne, support HTTP/2, gestion asynchrone native, code plus maintenable.
 
 ## 6 - Amélioration des Streams
 ### `Stream.takeWhile()` et `dropWhile()`
 - **Utilité** : Prendre ou ignorer des éléments selon une condition (introduit en Java 9).
+
 ```java
 // Avant (Java 8) - pas d'équivalent simple
 List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 1, 2);
@@ -165,10 +176,12 @@ List<Integer> dropped = numbers.stream()
     .dropWhile(n -> n < 4)
     .collect(Collectors.toList()); // [4, 5, 1, 2]
 ```
+
 - **Impact** : Opérations sur les streams plus expressives et fonctionnelles.
 
 ### `Stream.ofNullable()`
 - **Utilité** : Crée un stream avec 0 ou 1 élément selon si la valeur est null.
+
 ```java
 // Avant (Java 8)
 String value = getValueOrNull();
@@ -178,10 +191,12 @@ Stream<String> stream = value != null ?
 // Après (Java 11)
 Stream<String> stream = Stream.ofNullable(getValueOrNull());
 ```
+
 - **Impact** : Code plus concis, évite les vérifications null explicites.
 
 ## 7 - Interface privée methods (Java 9)
 - **Utilité** : Permet de factoriser du code dans les interfaces avec des méthodes privées.
+
 ```java
 // Avant (Java 8) - code dupliqué dans les méthodes default
 public interface Calculator {
@@ -213,10 +228,12 @@ public interface Calculator {
     }
 }
 ```
+
 - **Impact** : Meilleure factorisation du code dans les interfaces, moins de duplication.
 
 ## 8 - Try-with-resources amélioré (Java 9)
 - **Utilité** : Permet d'utiliser des variables effectively final dans try-with-resources.
+
 ```java
 // Avant (Java 8)
 BufferedReader reader1 = new BufferedReader(new FileReader("file.txt"));
@@ -230,11 +247,13 @@ try (reader) {
     return reader.readLine();
 }
 ```
+
 - **Impact** : Code moins verbeux, plus lisible.
 
 ## 10 - Méthodes ajoutées à Files
 Files.readString() et Files.writeString()
 - **Utilité** : Lecture/écriture simplifiée de fichiers texte.
+
 ```java
 // Avant (Java 8)
 Path path = Paths.get("file.txt");
@@ -247,10 +266,12 @@ Files.write(path, content.getBytes(StandardCharsets.UTF_8));
 String content = Files.readString(path);
 Files.writeString(path, content);
 ```
+
 - **Impact** : API simplifiée, code plus lisible, gestion automatique de l'encoding.
 
 ## 11 - Collection.toArray() amélioré
 - **Utilité** : Conversion collection vers array sans générateur de fonction.
+
 ```java
 // Avant (Java 8)
 List<String> list = Arrays.asList("A", "B", "C");
@@ -259,10 +280,12 @@ String[] array = list.toArray(new String[0]);
 // Après (Java 11)
 String[] array = list.toArray(String[]::new);
 ```
+
 - **Impact** : Syntaxe plus moderne et expressive.
 
 ## 12 - Predicate.not()
 - **Utilité** : Négation de prédicat plus lisible dans les streams.
+
 ```java
 // Avant (Java 8)
 List<String> nonEmpty = strings.stream()
@@ -274,6 +297,7 @@ List<String> nonEmpty = strings.stream()
     .filter(Predicate.not(String::isEmpty))
     .collect(Collectors.toList());
 ```
+
 - **Impact** : Meilleure lisibilité avec les method references.
 
 ## 13 - Suppression de modules deprecated
@@ -283,6 +307,7 @@ List<String> nonEmpty = strings.stream()
   - Java EE modules (JAX-WS, JAXB, etc.)
 
 - **Action requise** : Si vous utilisez ces APIs, ajoutez les dépendances externes correspondantes.
+
 ```xml
 <!-- Exemple pour JAXB -->
 <dependency>
@@ -294,6 +319,7 @@ List<String> nonEmpty = strings.stream()
 
 ## 14 - Launch Single-File Source-Code Programs
 - **Utilité** : Exécuter directement un fichier .java sans compilation explicite.
+
 ```bash
 # Avant (Java 8)
 javac HelloWorld.java
@@ -302,14 +328,17 @@ java HelloWorld
 # Après (Java 11)
 java HelloWorld.java
 ```
+
 - **Impact** : Idéal pour scripts et prototypage rapide.
 
 ## 9 - Nouveau garbage collector : ZGC (expérimental en Java 11)
 - **Utilité** : Garbage collector à faible latence pour de grandes heaps (jusqu'à 16 TB).
+
 ```bash
 # Activation
 java -XX:+UnlockExperimentalVMOptions -XX:+UseZGC -jar application.jar
 ```
+
 - **Impact** : Pauses GC < 10ms, idéal pour applications nécessitant une faible latence.
 
 ---
