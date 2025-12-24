@@ -1,6 +1,3 @@
-# bachirlahrache.github.io
-Bachir Lahrache Personal Site
-
 ## What's new in java :
 - [whats new from java 6 to 7](./java_whats_new/whats_new_from_java_6_to_7.md)
 - [whats new from java 7 to 8](./java_whats_new/whats_new_from_java_7_to_8.md)
