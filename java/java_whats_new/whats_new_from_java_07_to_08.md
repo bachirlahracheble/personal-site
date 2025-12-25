@@ -922,7 +922,7 @@ String result5 = items.stream()
 
 
 
-## 13 - `Base64`
+## 13 - Base64
 - **Utilité** : API standard pour encoder/décoder en Base64.
 
 ```java
